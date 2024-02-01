@@ -15,7 +15,7 @@ class GroupRepository extends BaseRepository
 
     public function getData()
     {
-        return parent::getData()->with('project')->paginate(5);
+        return parent::getData()->with('school_year')->paginate(5);
     }
 
 }
