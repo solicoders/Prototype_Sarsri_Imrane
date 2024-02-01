@@ -28,8 +28,8 @@ abstract class BaseRepository
         return $model->update($validatedData);
     }
 
-    public function destroy(Model $task)
+    public function destroy(Model $model)
     {
-        return $task->delete();
+        return $model->delete();
     }
 }
