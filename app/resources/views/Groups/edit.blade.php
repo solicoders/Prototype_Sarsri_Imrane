@@ -19,14 +19,13 @@
                                     <label for="school_years_id">school years <span class="text-danger">*</span></label>
                                     <select id="school_years_id" name="school_years_id" class="custom-select">
                                         @foreach ($School_years_filter as $School_year_filter)
-                                            <option {{-- @selected($School_year_filter->id == $tâch->School_year_filter->id) --}} value="{{ $School_year_filter->id }}"
+                                            <option @selected($School_year_filter->id == $groupe->schoolYear->id) value="{{ $School_year_filter->id }}"
                                                 name="{{ $School_year_filter->id }}">
                                                 {{ $School_year_filter->start_date }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="Group_number">Group number <span class="text-danger">*</span></label>
                                     <input type="text" name="Group_number"

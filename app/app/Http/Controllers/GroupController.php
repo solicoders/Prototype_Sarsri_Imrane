@@ -18,8 +18,29 @@ class GroupController extends Controller
         $this->GroupRepository = $GroupRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $query = Group::query();
+            $Groups = $request->get('NumeroDeGroupe');
+            $School_years_filter = $request->get('selectSchoolYears');
+            $search = str_replace(' ', '%', $Groups);
+
+            // pagination
+            if (empty($search) && $School_years_filter === "Filtrer par Années scolaires") {
+                return view('Groups.search', compact('Groups', 'School_years_filter'));
+            }
+            // search
+            if ($search) {
+                $Groups = $query->with('schoolYear')->where('Group_number', 'like', '%' . $search . '%')->paginate(5);
+            }
+            // filter
+            if ($School_years_filter !== "Filtrer par Années scolaires") {
+                $Groups = $query->where('school_years_id', $School_years_filter)->paginate(3);
+            }
+            return view('Groups.search', compact('Groups', 'School_years_filter'))->render();
+        }
+
         $School_years_filter = School_year::all();
         $Groups = $this->GroupRepository->getData();
         return view('Groups.index', compact('Groups', 'School_years_filter'));

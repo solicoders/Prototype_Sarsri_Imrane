@@ -25,8 +25,8 @@
                     </div>
                     <div class="col-sm-12">
                         <label for="nom">Nom du projet: </label>
-                        {{-- <p>{{ $Group->project->name }}</p> --}}
-                        <p>{{ $groupe->school_years_id }}</p>
+                        <p>{{ $groupe->schoolYear->start_date }}</p>
+
                     </div>
                     <div class="col-sm-12">
                         <label for="description">Description: </label>

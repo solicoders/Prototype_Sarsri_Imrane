@@ -1,9 +1,7 @@
 @foreach ($Groups as $Group)
     <tr>
         <td>{{ $Group->Group_number }}</td>
-        {{-- <td>{{ $Group->school_year->start_date }}</td> --}}
-        <td>{{ $Group->school_year ? $Group->school_year->start_date : 'N/A' }}</td>
-
+        <td>{{ $Group->schoolYear->start_date }}</td>
         <td>{{ $Group->Reference }}</td>
         <td class="d-flex">
             <a href="{{ route('groupes.show', ['groupe' => $Group]) }}" class="btn btn-sm btn-default">
