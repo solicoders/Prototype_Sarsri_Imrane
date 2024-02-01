@@ -21,5 +21,5 @@ Route::get('/', function () {
 
 Route::get('test_method_index', [App\Repositories\GroupRepository::class, 'getData']);
 
-Route::get('test_method_create', [App\Repositories\GroupRepository::class, 'create']);
+Route::post('test_method_create', [App\Repositories\GroupRepository::class, 'create']);
 // http://127.0.0.1:8000/test_method_create?Group_number=testGroup_number&Reference=testReference&school_years_id=testschool_years_id
