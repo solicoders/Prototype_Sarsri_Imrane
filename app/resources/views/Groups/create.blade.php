@@ -8,40 +8,42 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Ajouter Une Tâche</h3>
+                            <h3 class="card-title">Ajouter Une Groupe</h3>
                         </div>
-                        <form action="{{ route('tâches.store') }}" method="post">
+                        <form action="{{ route('groupes.store') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="Projet">Projet <span class="text-danger">*</span></label>
-                                    <select name="project_id" id="Projet" class="custom-select">
-                                        @foreach ($Projects as $Project)
-                                            <option value="{{ $Project->id }}">{{ $Project->name }}</option>
+                                    <label for="start_date">Start date <span class="text-danger">*</span></label>
+                                    <select name="start_date" id="start_date" class="custom-select">
+                                        @foreach ($School_years_filter as $School_year_filter)
+                                            <option value="{{ $School_year_filter->id }}">
+                                                {{ $School_year_filter->start_date }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nominputnom1">Nom <span class="text-danger">*</span></label>
-                                    <input name="name" type="text"
-                                        class="form-control @error('name') border-danger @enderror" id="nominputnom1"
-                                        placeholder="Enter le name de Tâche" value="{{ old('name') }}">
-                                    @error('name')
+                                    <label for="Group_number">Group Number<span class="text-danger">*</span></label>
+                                    <input name="Group_number" type="text"
+                                        class="form-control @error('Group_number') border-danger @enderror"
+                                        id="Group_number" placeholder="Enter le name de Tâche"
+                                        value="{{ old('Group_number') }}">
+                                    @error('Group_number')
                                         <p class="text-danger"> {{ $message }} </p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="">Description</label>
-                                    <textarea class="form-control @error('description') border-danger @enderror" name="description" rows="3"
-                                        placeholder="Entre un Description">{{ old('description') }}</textarea>
-                                    @error('description')
+                                    <label class="">Reference <span class="text-danger">*</span></label>
+                                    <textarea class="form-control @error('Reference') border-danger @enderror" name="Reference" rows="3"
+                                        placeholder="Entre un Reference">{{ old('Reference') }}</textarea>
+                                    @error('Reference')
                                         <p class="text-danger"> {{ $message }} </p>
                                     @enderror
                                 </div>
                             </div>
 
                             <div class="card-footer">
-                                <a href="{{ route('tâches.index') }}" class="btn btn-default">annuler</a>
+                                <a href="{{ route('groupes.index') }}" class="btn btn-default">annuler</a>
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                             </div>
                         </form>

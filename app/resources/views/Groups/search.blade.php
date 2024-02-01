@@ -1,8 +1,10 @@
 @foreach ($Groups as $Group)
     <tr>
-        <td>{{ $Group->name }}</td>
-        <td>{{ $Group->project->name }}</td>
-        <td>{{ $Group->description }}</td>
+        <td>{{ $Group->Group_number }}</td>
+        {{-- <td>{{ $Group->school_year->start_date }}</td> --}}
+        <td>{{ $Group->school_year ? $Group->school_year->start_date : 'N/A' }}</td>
+
+        <td>{{ $Group->Reference }}</td>
         <td class="d-flex">
             <a href="{{ route('groupes.show', ['groupe' => $Group]) }}" class="btn btn-sm btn-default">
                 <i class="fa-solid fa-eye"></i>

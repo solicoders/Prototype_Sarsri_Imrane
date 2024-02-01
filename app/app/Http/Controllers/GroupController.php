@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\School_year;
 use Illuminate\Http\Request;
 use App\Repositories\GroupRepository;
+use App\Http\Requests\FormGroupRequest;
 
 // use Illuminate\Http\Request;
 
@@ -28,15 +29,18 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        $School_years_filter = School_year::all();
+        return view('Groups.create', compact('School_years_filter'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FormGroupRequest $request)
     {
-        //
+        dd($request);
+        // $this->GroupRepository->create($request->validated());
+        // return redirect()->route('tasks.index')->with('success', 'Tâche créée avec succès !');
     }
 
     /**

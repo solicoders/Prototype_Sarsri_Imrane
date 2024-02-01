@@ -43,7 +43,7 @@
                                             @foreach ($School_years_filter as $School_year_filter)
                                                 <option value="{{ $School_year_filter->id }}"
                                                     name="{{ $School_year_filter->id }}">
-                                                    {{ $School_year_filter->name }}
+                                                    {{ $School_year_filter->start_date }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div id="search_ajax">
-                            @include('Tasks.table')
+                            @include('Groups.table')
                         </div>
                     </div>
                 </div>

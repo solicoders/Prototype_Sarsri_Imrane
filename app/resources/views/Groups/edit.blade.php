@@ -11,7 +11,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Edit Tâche</h3>
                         </div>
-                        <form action="{{ route('tâches.update', ['tâch' => $tâch]) }}" method="post">
+                        <form action="{{ route('groupes.update', ['tâch' => $tâch]) }}" method="post">
                             @csrf
                             @method('put')
                             <div class="card-body">

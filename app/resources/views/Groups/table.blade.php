@@ -2,9 +2,9 @@
     <table class="table table-striped text-nowrap table-tasks">
         <thead>
             <tr>
-                <th>Tâche</th>
-                <th>Projet</th>
-                <th>Description</th>
+                <th>Numéro de groupe</th>
+                <th>années scolaires</th>
+                <th>Référence</th>
                 <th>Actions</th>
             </tr>
         </thead>
