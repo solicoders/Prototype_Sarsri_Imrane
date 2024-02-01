@@ -6,6 +6,7 @@ use App\Models\School_year;
 use Illuminate\Http\Request;
 use App\Repositories\GroupRepository;
 use App\Http\Requests\FormGroupRequest;
+use App\Models\Group;
 
 // use Illuminate\Http\Request;
 
@@ -33,45 +34,46 @@ class GroupController extends Controller
         return view('Groups.create', compact('School_years_filter'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(FormGroupRequest $request)
     {
-        dd($request);
-        // $this->GroupRepository->create($request->validated());
-        // return redirect()->route('tasks.index')->with('success', 'Tâche créée avec succès !');
-    }
+        $this->GroupRepository->create($request->validated());
+        return redirect()->route('groupes.index')->with('success', 'Tâche créée avec succès !');
 
+    }
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Group $groupe)
     {
-        //
+        return view('Groups.show', compact('groupe'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Group $groupe)
     {
-        //
+        $School_years_filter = School_year::all();
+        return view('Groups.edit', compact('School_years_filter', 'groupe'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(FormGroupRequest $request, Group $groupe)
     {
-        //
+        $this->GroupRepository->edit($request->validated(), $groupe);
+        return redirect()->route('groupes.index')->with('success', 'Tâche mise à jour avec succès !');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Group $groupe)
     {
-        //
+        $this->GroupRepository->destroy($groupe);
+        return redirect()->route('groupes.index')->with('success', 'Tâche supprimée avec succès !');
+
     }
 }

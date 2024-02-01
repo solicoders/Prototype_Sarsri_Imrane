@@ -12,10 +12,11 @@
                         </div>
                         <form action="{{ route('groupes.store') }}" method="post">
                             @csrf
+                            @method('post')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="start_date">Start date <span class="text-danger">*</span></label>
-                                    <select name="start_date" id="start_date" class="custom-select">
+                                    <label for="school_years_id">Start date <span class="text-danger">*</span></label>
+                                    <select name="school_years_id" id="school_years_id" class="custom-select">
                                         @foreach ($School_years_filter as $School_year_filter)
                                             <option value="{{ $School_year_filter->id }}">
                                                 {{ $School_year_filter->start_date }}</option>
@@ -41,9 +42,8 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="card-footer">
-                                <a href="{{ route('groupes.index') }}" class="btn btn-default">annuler</a>
+                                <a href="{{ route('groupes.index') }}" class="btn btn-default">Annuler</a>
                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                             </div>
                         </form>
