@@ -15,8 +15,9 @@ class Group extends Model
         'Reference',
         'school_years_id'
     ];
-    public function school_year(): BelongsTo
+
+    public function schoolYear()
     {
-        return $this->belongsTo(School_year::class);
+        return $this->belongsTo(School_year::class, 'school_years_id');
     }
 }

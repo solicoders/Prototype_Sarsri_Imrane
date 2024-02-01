@@ -11,7 +11,7 @@ class School_year extends Model
     protected $fillable = [
         'start_date'
     ];
-    public function group()
+    public function groups()
     {
         return $this->hasMany(Group::class);
     }
